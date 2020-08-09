@@ -40,11 +40,22 @@ export async function sha256OfFile(path: string): Promise<string> {
 }
 
 /** download a URL and save it to a file */
-export async function downloadUrlToFile(url: string, path: string, requestOpts?: request.CoreOptions): Promise<void> {
-    const fileStream = fs.createWriteStream(path);
-    await new Promise((res, rej) => {
-        request(url, requestOpts).pipe(fileStream).on('close', () => {
-            res();
+export async function downloadUrlToFile(url: string, path: string, requestOpts?: request.CoreOptions): Promise<any> {
+    return new Promise((res, rej) => {
+        request.get(url, {
+            encoding: null
+        }, (err, data) => {
+            if(err) {
+                return rej(err);
+            }
+
+            try {
+                fs.writeFileSync(path, data.body);
+                res();
+            }
+            catch(ex) {
+                rej(ex);
+            }
         });
     });
 }

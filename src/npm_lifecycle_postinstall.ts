@@ -129,6 +129,6 @@ async function main() {
 }
 
 main().catch(err => {
-    console.error(err);
+    console.error(err.message, err.stack);
     process.exit(1);
 });
