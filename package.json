@@ -7,7 +7,6 @@
   },
   "scripts": {
     "build": "tsc && webpack",
-    "prepare": "npm run build",
     "postinstall": "node ./npm_lifecycle_postinstall.js",
     "dump-env": "node -e console.dir(process.env)"
   },
