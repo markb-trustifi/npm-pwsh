@@ -6,8 +6,9 @@
     "pwsh": "./bin/pwsh"
   },
   "scripts": {
-    "build": "tsc && webpack && node ./npm_lifecycle_postinstall.js",
+    "build": "tsc && webpack",
     "prepare": "npm run build",
+    "postinstall": "node ./npm_lifecycle_postinstall.js",
     "dump-env": "node -e console.dir(process.env)"
   },
   "author": "Andrew Bradley <cspotcode@gmail.com>",
