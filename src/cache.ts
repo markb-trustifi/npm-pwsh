@@ -19,7 +19,7 @@ export function getCacheInstallDirectory(machine: Pick<NodeJS.Process, 'platform
         return Path.join(getNpmGlobalNodeModules(), '@cspotcode/pwsh-cache');
         // TODO should cache in NPM_PREFIX for --global installations
     } else {
-        return Path.join(os.homedir(), '.npm-pwsh');
+        return Path.join(__dirname, 'npm-pwsh');
     }
 }
 
