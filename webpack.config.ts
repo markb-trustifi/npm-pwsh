@@ -1,5 +1,6 @@
 import * as Path from 'path';
 import * as webpack from 'webpack';
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config: webpack.Configuration = {
     context: __dirname,
@@ -37,6 +38,15 @@ const config: webpack.Configuration = {
             use: ['source-map-loader']
         }]
     },
+
+    plugins: [
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: 'out/__root.js' },
+                { from: 'src/buildTags.json' }
+            ]
+        })
+    ]
 };
 
 export = config;
