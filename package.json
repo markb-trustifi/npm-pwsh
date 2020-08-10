@@ -7,6 +7,7 @@
   },
   "scripts": {
     "build": "tsc && webpack && node ./npm_lifecycle_postinstall.js",
+    "install": "npm run build",
     "dump-env": "node -e console.dir(process.env)"
   },
   "author": "Andrew Bradley <cspotcode@gmail.com>",
